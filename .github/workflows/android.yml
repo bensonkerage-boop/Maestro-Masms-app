@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: 21 }
       - run: npm ci
+      # Set API_BASE as a repository variable (Settings > Secrets and variables > Actions > Variables),
+      # e.g. https://your-project.vercel.app
       - run: npm run build:android
         env:
           API_BASE: ${{ vars.API_BASE }}
